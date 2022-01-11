@@ -8,7 +8,7 @@
     <aside th:replace="layout/aside :: aside-fragment('agregar-mascota')"></aside>
 
     <main class="main">
-        <h1 class="title">Agregar Mascota</h1>
+        <h1 class="title" th:text="${title}">Agregar Mascota</h1>
         <form class="register-form" th:action="@{/form-mascota}" method="post" th:object="${pet}">
 
             <div class="form__container">
@@ -61,7 +61,7 @@
                     <input id="input-file" class="input-file" type="file" value="Busca una imagen">
                 </div>
 
-                <button type="submit" class="button secondary mt">Guardar</button>
+                <button type="submit" class="button secondary mt" th:text="${btnText}"></button>
             </div>
 
         </form>
