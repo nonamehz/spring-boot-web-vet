@@ -1,0 +1,14 @@
+<div th:fragment="PetCard(pet)" class="adopt__card">
+    <div class="adopt__img">
+        <img th:src="@{${'/assets/img/'+ pet.urlImg + '.jpg'}}" alt="">
+    </div>
+    <div class="adopt__description">
+        <h4 th:text="${pet.name}"></h4>
+        <p>Género: <span th:text="${pet.gender == 'M'} ? 'Macho' : 'Hembra'">
+            </span>
+        </p>
+        <p>Edad: <span th:text="${pet.age}"></span></p>
+        <p>Raza: <span th:text="${pet.breed}"></span></p>
+    </div>
+    <a class="button secondary mb" th:href="@{/adopt/{id}(id=${pet.id})}">Más Información</a>
+</div>

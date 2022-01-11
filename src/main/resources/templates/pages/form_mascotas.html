@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/head :: head-fragment('VetMedic')"></head>
+
+<body>
+
+    <aside th:replace="layout/aside :: aside-fragment('agregar-mascota')"></aside>
+
+    <main class="main">
+        <h1 class="title">Agregar Mascota</h1>
+        <form class="register-form" th:action="@{/form-mascota}" method="post" th:object="${pet}">
+
+            <div class="form__container">
+                <label class="form-label" for="name">Nombre</label>
+                <input class="form-input" th:field="*{name}" type="text">
+                <div class="error-message" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+                <label class="form-label" for="age">Edad</label>
+                <input class="form-input" th:field="*{age}" type="number" min="0">
+                <div class="error-message" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+
+                <label class="form-label" for="weigh">Peso</label>
+                <input class="form-input" th:field="*{weigh}" type="text">
+                <div class="error-message" th:if="${#fields.hasErrors('weigh')}" th:errors="*{weigh}"></div>
+
+                <label class="form-label" for="owner">Dueño</label>
+                <input class="form-input" th:field="*{owner}" type="text">
+                <div class="error-message" th:if="${#fields.hasErrors('owner')}" th:errors="*{owner}"></div>
+            </div>
+
+            <div class="form__container">
+
+                <label class="form-label" for="breed">Raza</label>
+                <input class="form-input" th:field="*{breed}" type="text">
+                <div class="error-message" th:if="${#fields.hasErrors('breed')}" th:errors="*{breed}"></div>
+
+                <label class="form-label" for="color">Color</label>
+                <input class="form-input" th:field="*{color}" type="text">
+                <div class="error-message" th:if="${#fields.hasErrors('color')}" th:errors="*{color}"></div>
+
+                <label class="form-label" for="birthday">Fecha de Nacimiento</label>
+                <input class="form-input" th:field="*{birthday}" type="date">
+                <div class="error-message" th:if="${#fields.hasErrors('birthday')}" th:errors="*{birthday}"></div>
+
+                <label class="form-label" for="gender">Género</label>
+                <select class="form-input" th:field="*{gender}" id="genero">
+                    <option value="" selected>-- Seleccione --</option>
+                    <option value="M">Macho</option>
+                    <option value="H">Hembra</option>
+                </select>
+                <div class="error-message" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></div>
+
+            </div>
+
+            <div class="form__container">
+                <div id="img-preview" class="image__pet">
+                    <p id="dragText">Arrastra y suelta para subir la imagen</p> <br>
+                    <p>o</p>
+                    <label id="label-file" class="button secondary" for="file">Busca una imagen</label>
+                    <input id="input-file" class="input-file" type="file" value="Busca una imagen">
+                </div>
+
+                <button type="submit" class="button secondary mt">Guardar</button>
+            </div>
+
+        </form>
+    </main>
+
+</body>
+
+</html>

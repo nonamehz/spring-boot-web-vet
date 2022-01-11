@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/head :: head-fragment('Adopta una Mascota')"></head>
+
+<body>
+
+    <aside th:replace="layout/aside :: aside-fragment"></aside>
+
+    <main class="pet__profile section container">
+        <div class="pet__img">
+            <img th:src="@{${'/assets/img/'+ pet.urlImg + '.jpg'}}" alt="Dog img">
+        </div>
+        <div class="pet__description">
+            <h4 class="text-center" th:text="${pet.name}"></h4>
+            <p>Genero: <span th:text="${pet.gender == 'M'} ? 'Macho' : 'Hembra'"></span></p>
+            <p>Edad: <span th:text="${pet.age}"></span></p>
+            <p>Raza: <span th:text="${pet.breed}"></span></p>
+            <p>Color: <span th:text="${pet.color}"></span></p>
+            <p>Peso: <span th:text="${pet.weigh}"></span></p>
+            <p>Fecha de Nacimiento: <span th:text="${pet.birthday}"></span></p>
+            <p>Dueño: <span th:text="${pet.owner}"></span></p>
+            <a class="button secondary" href="#">Adoptar</a>
+        </div>
+    </main>
+
+
+    <footer th:replace="layout/footer :: footer-fragment"></footer>
+
+</body>
+
+</html>

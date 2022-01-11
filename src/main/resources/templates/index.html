@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout/head :: head-fragment('VetMedic')"></head>
+
+<body>
+
+    <aside th:replace="layout/aside :: aside-fragment('inicio')"></aside>
+
+    <main class="main">
+        <h1 class="title">Inicio</h1>
+
+        <div class="adoption">
+
+            <div class="adopt">
+                <th:block th:each="pet: ${pets}">
+                    <div th:replace="components/PetCard :: PetCard(${pet})"></div>
+                </th:block>
+            </div>
+
+            <div class="container">
+                <a class=" button primary mt" href="dogs.html">Ver más mascotas</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
