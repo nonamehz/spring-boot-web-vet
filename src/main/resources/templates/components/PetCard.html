@@ -1,6 +1,7 @@
 <div th:fragment="PetCard(pet)" class="adopt__card">
     <div class="adopt__img">
-        <img th:src="@{${'/assets/img/'+ pet.urlImg}}" alt="Pet Image">
+        <img th:if="${pet.urlImg} == null" th:src="@{/assets/img/noImgPet.png}" alt="No Image">
+        <img th:if="${pet.urlImg} != null" th:src="@{${'/assets/img/'+ pet.urlImg}}" alt="Pet Image">
     </div>
     <div class="adopt__description">
         <h4 th:text="${pet.name}"></h4>
@@ -10,5 +11,5 @@
         <p>Edad: <span th:text="${pet.age}"></span></p>
         <p>Raza: <span th:text="${pet.breed}"></span></p>
     </div>
-    <a class="button secondary mb" th:href="@{/adopt/{id}(id=${pet.id})}">Más Información</a>
+    <a class="button secondary mb" th:href="@{/mascota/perfil/{id}(id=${pet.id})}">Más Información</a>
 </div>

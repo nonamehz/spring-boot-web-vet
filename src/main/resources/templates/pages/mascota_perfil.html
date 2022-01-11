@@ -5,11 +5,12 @@
 
 <body>
 
-    <aside th:replace="layout/aside :: aside-fragment"></aside>
+    <aside th:replace="layout/aside :: aside-fragment('inicio')"></aside>
 
     <main class="pet__profile section container">
         <div class="pet__img">
-            <img th:src="@{${'/assets/img/'+ pet.urlImg + '.jpg'}}" alt="Dog img">
+            <img th:if="${pet.urlImg} == null" th:src="@{/assets/img/noImgPet.png}" alt="No Image">
+            <img th:if="${pet.urlImg} != null" th:src="@{${'/assets/img/'+ pet.urlImg}}" alt="Pet Image">
         </div>
         <div class="pet__description">
             <h4 class="text-center" th:text="${pet.name}"></h4>
@@ -23,9 +24,6 @@
             <a class="button secondary" href="#">Adoptar</a>
         </div>
     </main>
-
-
-    <footer th:replace="layout/footer :: footer-fragment"></footer>
 
 </body>
 

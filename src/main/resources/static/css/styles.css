@@ -409,3 +409,42 @@ label {
     right: 0;
     width: 55vw;
 }
+
+/* Pet Profile */
+.pet__profile {
+    display: grid;
+    height: calc(100vh - 400px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.pet__img {
+    padding: 2rem;
+    background-color: var(--backgroundColor);
+}
+
+.pet__img img {
+    height: 100%;
+}
+
+.pet__description {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--backgroundColor);
+    padding: 2rem;
+}
+
+.pet__description h4 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.pet__description p {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.pet__description span{
+    font-weight: normal;
+}

@@ -87,7 +87,7 @@ public class PetController {
     }
 
     @GetMapping("/mascota/perfil/{id}")
-    public String petProfile(@PathVariable("id") Integer id, Model model) {
+    public String petProfile(@PathVariable Integer id, Model model) {
         model.addAttribute("pet", iPet.petById(id));
         return "pages/mascota_perfil";
     }
