@@ -1,5 +1,5 @@
-INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES (1, 1, '2021-01-01', 'Beagle', 'Marron', 'M', 'Coco', 'Martin', 'beagle1', 12.1);
-INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES  (2, 2, '2021-02-02', 'Boxer', 'Marron', 'M', 'Thor', 'Franco', 'boxer2', 24.2);
-INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES  (3, 3, '2021-03-03', 'Chihuahua', 'Marron', 'M', 'Max', 'Nahuel', 'chihuahua3', 3.3);
-INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES (4, 4, '2021-04-04', 'Doberman', 'Negro', 'M', 'Rocky', 'Andres', 'doberman4', 34.4);
-INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES (5, 5, '2021-05-05', 'Husky', 'Negro', 'H', 'Toby', 'Pedro', 'husky5', 16.5);
+INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES (1, 1, '2021-01-01', 'Beagle', 'Marron', 'M', 'Coco', 'Martin', 'beagle1.jpg', 12.1);
+INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES  (2, 2, '2021-02-02', 'Boxer', 'Marron', 'M', 'Thor', 'Franco', 'boxer2.jpg', 24.2);
+INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES  (3, 3, '2021-03-03', 'Chihuahua', 'Marron', 'M', 'Max', 'Nahuel', 'chihuahua3.jpg', 3.3);
+INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES (4, 4, '2021-04-04', 'Doberman', 'Negro', 'M', 'Rocky', 'Andres', 'doberman4.jpg', 34.4);
+INSERT INTO Pet (id, age, birthday, breed, color, gender, name, owner, url_img, weigh) VALUES (5, 5, '2021-05-05', 'Husky', 'Negro', 'H', 'Toby', 'Pedro', 'husky5.jpg', 16.5);

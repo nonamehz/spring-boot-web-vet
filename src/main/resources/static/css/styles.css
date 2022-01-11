@@ -360,10 +360,10 @@ label {
     width: 100%;
     object-fit: cover;
 }
-
+/* 
 .input-file {
     display: none;
-}
+} */
 
 /* Auth */
 .auth {

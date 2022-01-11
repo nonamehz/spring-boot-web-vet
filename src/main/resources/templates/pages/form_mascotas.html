@@ -9,7 +9,8 @@
 
     <main class="main">
         <h1 class="title" th:text="${title}">Agregar Mascota</h1>
-        <form class="register-form" th:action="@{/form-mascota}" method="post" th:object="${pet}">
+        <form class="register-form" th:action="@{/form-mascota}" method="post" th:object="${pet}"
+            enctype="multipart/form-data">
 
             <div class="form__container">
                 <label class="form-label" for="name">Nombre</label>
@@ -54,11 +55,9 @@
             </div>
 
             <div class="form__container">
-                <div id="img-preview" class="image__pet">
-                    <p id="dragText">Arrastra y suelta para subir la imagen</p> <br>
-                    <p>o</p>
-                    <label id="label-file" class="button secondary" for="file">Busca una imagen</label>
-                    <input id="input-file" class="input-file" type="file" value="Busca una imagen">
+                <div class="image__pet">
+                    <label for="foto">Busca una imagen</label>
+                    <input name="file" id="foto" class="primary input-file" type="file">
                 </div>
 
                 <button type="submit" class="button secondary mt" th:text="${btnText}"></button>

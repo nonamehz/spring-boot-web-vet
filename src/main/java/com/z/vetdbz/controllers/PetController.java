@@ -1,5 +1,10 @@
 package com.z.vetdbz.controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import javax.validation.Valid;
 
 import com.z.vetdbz.models.dao.IPet;
@@ -12,8 +17,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @SessionAttributes("pet")
@@ -49,11 +56,25 @@ public class PetController {
     }
 
     @PostMapping("/form-mascota")
-    public String newPetPost(@Valid Pet pet, BindingResult result, Model model, SessionStatus sessionStatus) {
+    public String newPetPost(@Valid Pet pet, BindingResult result, Model model, @RequestParam MultipartFile file,
+            SessionStatus sessionStatus) {
 
         if (result.hasErrors()) {
             return "pages/form_mascotas";
         }
+
+        if (!file.isEmpty()) {
+            Path carpeta = Paths.get("src//main//resources//static//assets//img");
+            String raiz = carpeta.toFile().getAbsolutePath();
+            Path rutaFinal = Paths.get(raiz + "//" + file.getOriginalFilename());
+            try {
+                Files.write(rutaFinal, file.getBytes());
+                pet.setUrlImg(file.getOriginalFilename());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         iPet.savePet(pet);
         sessionStatus.setComplete();
         return "redirect:/mascotas";

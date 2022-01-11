@@ -1,6 +1,6 @@
 <div th:fragment="PetCard(pet)" class="adopt__card">
     <div class="adopt__img">
-        <img th:src="@{${'/assets/img/'+ pet.urlImg + '.jpg'}}" alt="">
+        <img th:src="@{${'/assets/img/'+ pet.urlImg}}" alt="Pet Image">
     </div>
     <div class="adopt__description">
         <h4 th:text="${pet.name}"></h4>
