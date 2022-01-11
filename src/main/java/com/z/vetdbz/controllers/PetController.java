@@ -55,14 +55,13 @@ public class PetController {
         return "redirect:/";
     }
 
-    // @GetMapping("/form-mascota/{id}")
-    // public String editPet(@PathVariable Integer id, Model model) {
-    // model.addAttribute("pet", iPet.petById(id));
-    // System.out.println(iPet.petById(id));
-    // return "pages/form_mascotas";
-    // }
+    @GetMapping("/mascota/eliminar/{id}")
+    public String petDelete(@PathVariable Integer id) {
+        iPet.deletePet(id);
+        return "redirect:/mascotas";
+    }
 
-    @GetMapping("/mascotas/{id}")
+    @GetMapping("/mascota/perfil/{id}")
     public String petProfile(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("pet", iPet.petById(id));
         return "pages/mascota_perfil";

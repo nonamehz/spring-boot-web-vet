@@ -39,8 +39,9 @@ public class PetDAO implements IPet {
     }
 
     @Override
+    @Transactional
     public void deletePet(Integer id) {
-        // TODO Auto-generated method stub
+        entityManager.remove(petById(id));
     }
 
 }
