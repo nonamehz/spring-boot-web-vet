@@ -47,11 +47,9 @@ public class PetController {
     public String newPet(@PathVariable(required = false) Integer id, Model model) {
         if (id == null) {
             model.addAttribute("title", "Registrar Mascota");
-            model.addAttribute("btnText", "Registrar");
             model.addAttribute("pet", new Pet());
         } else {
             model.addAttribute("title", "Editar Mascota");
-            model.addAttribute("btnText", "Guardar");
             model.addAttribute("pet", iPet.petById(id));
         }
         return "pages/form_mascotas";
