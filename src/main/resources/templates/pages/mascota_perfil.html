@@ -10,7 +10,7 @@
     <main class="pet__profile section container">
         <div class="pet__img">
             <img th:if="${pet.urlImg} == null" th:src="@{/assets/img/noImgPet.png}" alt="No Image">
-            <img th:if="${pet.urlImg} != null" th:src="@{${'/assets/img/'+ pet.urlImg}}" alt="Pet Image">
+            <img th:if="${pet.urlImg} != null" th:src="@{${'/uploads/'+ pet.urlImg}}" alt="Pet Image">
         </div>
         <div class="pet__description">
             <h4 class="text-center" th:text="${pet.name}"></h4>

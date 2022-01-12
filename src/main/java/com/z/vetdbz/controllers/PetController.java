@@ -1,9 +1,11 @@
 package com.z.vetdbz.controllers;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -64,12 +66,12 @@ public class PetController {
         }
 
         if (!file.isEmpty()) {
-            Path carpeta = Paths.get("src//main//resources//static//assets//img");
-            String raiz = carpeta.toFile().getAbsolutePath();
-            Path rutaFinal = Paths.get(raiz + "//" + file.getOriginalFilename());
+            String urlImg = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
+            Path uploadPath = Paths.get("uploads").resolve(urlImg);
+            Path raiz = uploadPath.toAbsolutePath();
             try {
-                Files.write(rutaFinal, file.getBytes());
-                pet.setUrlImg(file.getOriginalFilename());
+                Files.copy(file.getInputStream(), raiz);
+                pet.setUrlImg(urlImg);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -82,7 +84,17 @@ public class PetController {
 
     @GetMapping("/mascota/eliminar/{id}")
     public String petDelete(@PathVariable Integer id) {
+        // Eliminar foto
+        Pet pet = iPet.petById(id);
+        Path urlPath = Paths.get("uploads").resolve(pet.getUrlImg()).toAbsolutePath();
+        File photo = urlPath.toFile();
+
+        if (photo.exists() && photo.canRead()) {
+            photo.delete();
+        }
+
         iPet.deletePet(id);
+
         return "redirect:/mascotas";
     }
 
