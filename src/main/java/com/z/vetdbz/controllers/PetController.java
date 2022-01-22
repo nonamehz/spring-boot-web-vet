@@ -84,11 +84,14 @@ public class PetController {
     public String petDelete(@PathVariable Integer id) {
         // Eliminar foto
         Pet pet = iPet.petById(id);
-        Path urlPath = Paths.get("uploads").resolve(pet.getUrlImg()).toAbsolutePath();
-        File photo = urlPath.toFile();
 
-        if (photo.exists() && photo.canRead()) {
-            photo.delete();
+        if (pet.getUrlImg() != null) {
+            Path urlPath = Paths.get("uploads").resolve(pet.getUrlImg()).toAbsolutePath();
+            File photo = urlPath.toFile();
+
+            if (photo.exists() && photo.canRead()) {
+                photo.delete();
+            }
         }
 
         iPet.deletePet(id);
